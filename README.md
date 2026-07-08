@@ -72,6 +72,9 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 | ID | Node identifier |
 | Demand | Customer demand |
 
+- Row 0: Distribution center (demand = 0)
+- Rows 1–N: Customer nodes with positive demand
+
 ### Instance Sizes
 
 | Set | Nodes |
@@ -82,32 +85,17 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 | Set4 | 250 |
 
 
-## Parameter Settings
 
+## Experimental Results
 
-| Parameter | Value |
-|-----------|-------|
-| Max Iterations | 2000 |
-| Tabu Length | 15 |
-| No-Improvement Threshold | 200 |
-| Initial Temperature | 2000 |
-| Cooling Rate | 0.98 |
-| Weight Update Period | 20 iterations |
-| Candidate solution size | 3 for Set1 & Set2, 10 for Set3, and 20 for Set4 |
-| Learning Rate | 0.3 |
-| Weight Lower Bound | 0.1 |
-| Weight Upper Bound | 3.0 |
+### vs Gurobi
 
+- Set1: 100% optimal · 86.3% faster
+- Set2: 0.82% gap · 174× faster
 
+### vs ALNS
 
-## Algorithm Comparison
+- Set3: 6.3% lower cost · 62.4% faster
+- Set4: 14.8% lower cost · 86.5% faster · more stable
 
-### vs Gurobi (10 independent runs for TS-SA)
-
-- On all Set1 instances, TS-SA achieves exactly the same optimal solutions as Gurobi, with the average solution identical to the best solution; Solution speed is approximately 86.3% faster than Gurobi
-- On all Set2 instances, the average deviation between TS-SA's best solution and Gurobi's optimal solution is only 0.82%, with the deviation between the average solution and the best solution within 15 yuan; Solution speed is approximately 174 times faster than Gurobi
-
-### vs ALNS (10 independent runs respectively)
-
-- On all Set3 instances, TS-SA reduces the average best solution by approximately 6.3% compared to ALNS, with computation time shortened by approximately 62.4%
-- On all Set4 instances, TS-SA reduces the average best solution by approximately 14.8% compared to ALNS, with computation time shortened by approximately 86.5%
+Parameters Setting (via orthogonal design): max iterations = 2000, tabu length = 15, no-improvement threshold = 200, initial temperature = 2000, cooling rate = 0.98, weight update period = 20, learning rate = 0.3, weight bounds = [0.1, 3.0]. Candidate size: 3 for Set1–2, 10 for Set3, 20 for Set4.
