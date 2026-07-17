@@ -1,6 +1,10 @@
 # VRPD-with-No-Fly-Zones
 Solving the Vehicle Routing Problem with Drones (VRP-D) under no-fly zone constraints using a hybrid Tabu Search-Simulated Annealing (TS-SA) algorithm.
 
+## Quick Start
+
+
+
 ## Model Design
 
 ### Model Paradigm
@@ -11,6 +15,7 @@ Solving the Vehicle Routing Problem with Drones (VRP-D) under no-fly zone constr
 - A drone serves only one customer per sortie
 - A drone can only be recovered by the truck that launched it
 
+<img src="Delivery_Mode.png" width="60%">
 
 ### Decision Variables
 
