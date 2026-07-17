@@ -3,7 +3,7 @@ Solving the Vehicle Routing Problem with Drones (VRP-D) under no-fly zone constr
 
 ## Quick Start
 
-
+See [`VRPD-with-No-Fly-Zones.ipynb`](VRPD-with-No-Fly-Zones.ipynb). It requires loading instance files from the [`Sets/`](Sets/), and the solution results will be written into Excel files (as shown in [`Solutions/`](Solutions/))
 
 ## Model Design
 
@@ -89,6 +89,19 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 | Set3 | 100 |
 | Set4 | 250 |
 
+
+## Updated Version
+
+An **updated version**(See [`VRPD-with-No-Fly-Zones_Updated.ipynb`](VRPD-with-No-Fly-Zones_Updated.ipynb)) of the solver has been introduced, which enhances the **TS-SA** framework by integrating **ALNS-style large neighborhood search** operators. This hybrid extension significantly improves solution stability, especially on large-scale and complex instances. The updated version is evaluated on the same **Sets** benchmark instances and includes a built-in **convergence plotting** utility to visualize the optimization progress over iterations.
+
+### Comparison of Algorithm Variants
+
+| Dimension | TS-SA | Updated (TS-SA + ALNS) |
+|-----------|-------|------------------------|
+| Core Idea | TS + SA | TS + SA + ALNS |
+| Neighborhood Operators | 6 small-scale operators | 6 small-scale + 4 destroy + 2 repair operators |
+| Search Granularity | Fine-grained local search | Coarse-to-fine (from single-node moves to 40% large-scale reconfigurations) |
+| Applicable Scenarios | Small to medium-scale problems | Large-scale complex problems |
 
 
 ## Experimental Results
