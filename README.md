@@ -88,7 +88,7 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 
 ## Updated Version
 
-An updated version (See [`VRPD-with-No-Fly-Zones_Updated.ipynb`](VRPD-with-No-Fly-Zones_Updated.ipynb)) has been introduced, which enhances the TS-SA framework by integrating ALNS-style large neighborhood search operators. 
+An updated version (see [`VRPD-with-No-Fly-Zones_Updated.ipynb`](VRPD-with-No-Fly-Zones_Updated.ipynb)) has been introduced, which enhances the TS-SA framework by integrating ALNS-style large neighborhood search operators. 
 - Extending the original 6 small-scale neighborhood operators with 4 destroy operators and 2 repair operators
 - Improving solution stability on large-scale and complex instances
 - Using the same [`Sets/`](Sets/) instances
