@@ -10,7 +10,7 @@ See [`VRPD-with-No-Fly-Zones.ipynb`](VRPD-with-No-Fly-Zones.ipynb). It requires 
 ### Model Paradigm
 
 - Multi-truck multi-drone collaborative system
-- All vehicles depart from and return to the distribution center
+- One distribution center; all vehicles depart from and return to the center
 - One drone per truck
 - A drone serves only one customer per sortie
 - A drone can only be recovered by the truck that launched it
@@ -38,12 +38,10 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 - Flow balance constraints
 - Temporal synchronization constraints
 
-
 ## No-Fly Zone Design
 
 - **Dynamic** – time-varying activation windows
 - **Irregular** – arbitrary convex or concave polygons
-
 
 ## Algorithm Design
 
@@ -64,7 +62,6 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 - Solve optimally using Dijkstra's algorithm
 - No-fly zone conflict detection using ray casting and orientation methods
 - A* algorithm for detour path planning around dynamic irregular no-fly zones
-
 
 ## Node Sets
 
@@ -89,22 +86,15 @@ Minimize total system cost, including truck travel cost, drone flight cost, truc
 | Set3 | 100 |
 | Set4 | 250 |
 
-
 ## Updated Version
 
-An **updated version**(See [`VRPD-with-No-Fly-Zones_Updated.ipynb`](VRPD-with-No-Fly-Zones_Updated.ipynb)) of the solver has been introduced, which enhances the **TS-SA** framework by integrating **ALNS-style large neighborhood search** operators. This hybrid extension significantly improves solution stability, especially on large-scale and complex instances. The updated version is evaluated on the same **Sets** benchmark instances and includes a built-in **convergence plotting** utility to visualize the optimization progress over iterations.
+An updated version (See [`VRPD-with-No-Fly-Zones_Updated.ipynb`](VRPD-with-No-Fly-Zones_Updated.ipynb)) has been introduced, which enhances the TS-SA framework by integrating ALNS-style large neighborhood search operators. 
+- Extending the original 6 small-scale neighborhood operators with 4 destroy operators and 2 repair operators
+- Improving solution stability on large-scale and complex instances
+- Using the same [`Sets/`](Sets/) instances
+- Adding a plotting utility to visualize the optimization progress over iterations
 
-### Comparison of Algorithm Variants
-
-| Dimension | TS-SA | Updated (TS-SA + ALNS) |
-|-----------|-------|------------------------|
-| Core Idea | TS + SA | TS + SA + ALNS |
-| Neighborhood Operators | 6 small-scale operators | 6 small-scale + 4 destroy + 2 repair operators |
-| Search Granularity | Fine-grained local search | Coarse-to-fine (from single-node moves to 40% large-scale reconfigurations) |
-| Applicable Scenarios | Small to medium-scale problems | Large-scale complex problems |
-
-
-## Experimental Results
+## Experimental Results (Updated Version)
 
 ### vs Gurobi
 
